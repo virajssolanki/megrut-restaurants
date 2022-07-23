@@ -8,7 +8,7 @@ import LogButton from '../../component/authPart/loginBtn';
 const Signup: NextPage = () => {
     return (
         <div>
-            <Heads title='Megrut Restaurant' />
+            {/* <Heads title='Megrut Restaurant' /> */}
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
                 <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
                     <h3 className="text-2xl font-bold text-center">Join us</h3>

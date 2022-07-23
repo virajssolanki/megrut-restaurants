@@ -2,10 +2,11 @@ import Image from "next/image";
 import React from "react";
 
 
-type manuProps = {
+export type manuProps = {
     itemName: string;
     imgSrc: string;
 }
+
 const ManuItem: React.FC<manuProps> = ({ itemName, imgSrc }) => {
     return (
         <>
@@ -13,7 +14,7 @@ const ManuItem: React.FC<manuProps> = ({ itemName, imgSrc }) => {
                 <div className="rounded-lg bg-white">
                     <Image src={imgSrc} alt="megrut restaurant" className="cursor-pointer rounded-xl" height={260} width={320} />
                     <div className="p-3">
-                        <h5 className="text-gray-900 text-xl font-medium mb-2">Card title</h5>
+                        <h5 className="text-gray-900 text-xl font-medium mb-2">{ itemName }</h5>
                         <p className="text-gray-700 text-base mb-4">
                             Some quick example text to build on...
                         </p>

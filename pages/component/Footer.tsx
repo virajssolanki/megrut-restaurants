@@ -8,9 +8,9 @@ const Footer = () => {
         <>
             <footer className="px-8 py-3 md:px-16 md:py-10 grid grid-cols-1 lg:grid-cols-3 border-t border-sky-900">
                 <div>
-                    <h1 className="text-2xl text-sky-900 font-medium">Sign up for exciting offers and updates</h1>
-                    <input className="px-5 py-3 mt-4 border border-sky-500 focus:border-sky-900 outline-none rounded-md block" type="email" placeholder="Your Email" />
-                    <button className="mr-3 mt-6 inline-block px-8 py-4 bg-sky-900 text-white font-medium text-lg leading-tight uppercase rounded shadow-md border-2 hover:text-sky-900 hover:bg-white hover:border-2 border-sky-900 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-300 ease-in-out">
+                    <h1 className="text-2xl text-black font-medium">Sign up for exciting offers and updates</h1>
+                    <input className="px-5 py-3 mt-4 border border-sky-600 focus:border-sky-900 outline-none rounded-md block" type="email" placeholder="Your Email" />
+                    <button className="mr-3 mt-6 inline-block px-8 py-4 bg-sky-900 text-white font-medium text-lg leading-tight uppercase rounded shadow-md border-2 hover:text-sky-900 hover:bg-white hover:border-2 border-sky-900 hover:shadow-lg active:bg-blue-800 active:shadow-lg transition duration-300 ease-in-out">
                         Submit
                     </button>
                 </div>
@@ -32,15 +32,15 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className="mt-6">
-                        <p className="text-xl text-sky-900 mt-3">suresssolanki@gmail.com</p>
-                        <p className="text-xl text-sky-900 mt-3">+91 7622939283 || +91 7046717674</p>
-                        <p className="text-xl text-sky-900 mt-3">Anand nagar , pahladnagr, Ahemdabad , Gujarat 380015</p>
+                        <p className="text-xl text-black mt-3">suresssolanki@gmail.com</p>
+                        <p className="text-xl text-black mt-3">+91 7622939283 || +91 7046717674</p>
+                        <p className="text-xl text-black mt-3">Anand nagar , pahladnagr, Ahemdabad , Gujarat 380015</p>
                     </div>
                 </div>
                 <div className="flex justify-between mt-6 lg:mt-0 lg:justify-start lg:flex-col items-end">
-                    <Link href="/" passHref ><span className="text-xl text-sky-900 mt-3 cursor-pointer"> Home </span></Link>
-                    <Link href="/" passHref><span className="text-xl text-sky-900 mt-3 cursor-pointer">About Us</span></Link>
-                    <Link href="/" passHref><span className="text-xl text-sky-900 mt-3 cursor-pointer">Contact</span></Link>
+                    <Link href="/" passHref ><span className="text-xl text-sky-900 font-medium mt-3 cursor-pointer"> Home </span></Link>
+                    <Link href="/" passHref><span className="text-xl text-sky-900 font-medium mt-3 cursor-pointer">About Us</span></Link>
+                    <Link href="/" passHref><span className="text-xl text-sky-900 font-medium mt-3 cursor-pointer">Contact</span></Link>
                 </div>
             </footer>
         </>

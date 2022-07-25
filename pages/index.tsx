@@ -1,9 +1,27 @@
+import { GetServerSideProps } from 'next';
 import Footer from './component/Footer';
 import Header from './component/Header';
 import Heads from './component/Heads';
 import ManuItem from './component/ManuItem';
 
-const Home = () => {
+type posts = {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+}
+export const getStaticProps: GetServerSideProps = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const posts: posts[] = await res.json();
+    return {
+        props: {
+            posts,
+        },
+    }
+}
+
+const Home = ({ posts }: { posts: posts[] }) => {
+    console.log(posts)
     const ManuList = [
         {
             itemName: "Pizza",
@@ -63,7 +81,7 @@ const Home = () => {
 
 // export const getServerSideProps = async () => {
 //     const data: any = await fetch("https://jsonplaceholder.typicode.com/posts");
-  
+
 //     return {
 //         props: {
 //             data,

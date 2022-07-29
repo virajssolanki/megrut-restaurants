@@ -16,4 +16,6 @@ export const ThemeContext = createContext<ThemeContextType>({
         document.body.style.backgroundColor = "black"
     }
 });
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => { 
+    return useContext(ThemeContext);
+}

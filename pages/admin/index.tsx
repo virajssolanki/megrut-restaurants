@@ -1,8 +1,12 @@
+import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
+import { posts } from "..";
+import AdminManuItem from "../component/adminManuItem";
 import { useAuth } from "../component/Context/Context";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Heads from "../component/Heads";
+import ManuForm from "../component/ManuForm";
 import Login from "./auth/login";
 
 type auth = {
@@ -19,7 +23,7 @@ type formInputProps = {
     type: string;
     onChange?: () => void;
 }
-const Home = () => {
+const Home = ({ posts }: { posts: posts[] }) => {
     const [coockis, setCoockis] = useState(Boolean);
     const [items, setItems] = useState(defaultAuth);
     const [addRest, setAddRest] = useState(false)
@@ -32,6 +36,7 @@ const Home = () => {
         }
     }
 
+    // array
     const FormInput: React.FC<formInputProps> = ({ title, placeholder, type, onChange }) => {
         return (
             <div className="mb-5">
@@ -51,24 +56,25 @@ const Home = () => {
         )
     }
     const reanderAdmin = () => {
-        const { user, login, logout } = useAuth();
+        const { AdminManu, deleteHAndal, editHandl, addManuHandal } = useAuth();
+        console.log(AdminManu)
         if (coockis !== true) {
             if (addRest !== true) {
                 return (
                     <>
                         <Heads title='Megrut Restaurant' />
                         <Header />
-                        <p>live manu is </p>
-                        <main>
-                            <div>
-                                <h1>Hello Context</h1>
-                                <h2>User: {user ? "login" : "logout"}</h2>
-                                <div>
-                                    <button onClick={login}>Login</button>
-                                    <button onClick={logout}>Logout</button>
-                                </div>
-                            </div>
-                        </main>
+                        <ManuForm />
+                        <div className="grid justify-center pt-8 pb-6">
+                            {
+                               AdminManu.map( (x) => {
+                                    return (
+                                        <AdminManuItem key={ x.id } itemName={ x.itemName } prise={ x.prise } imgSrc={ x.imgSrc } deleteHAndal={ deleteHAndal } editHandl={ editHandl } />
+                                    )
+                               }) 
+                            }
+                        </div>
+                        <button onClick={ addManuHandal }>hello Concret</button>
                     </>
                 )
             } else {
@@ -115,12 +121,25 @@ const Home = () => {
     )
 }
 
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts`)
-    const data = await res.json()
-    // Pass data to the page via props
-    return { props: { data } }
+export const getStaticProps: GetServerSideProps = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const posts: posts[] = await res.json();
+    return {
+        props: {
+            posts,
+        },
+    }
 }
 
 export default Home;
+
+{/* <main>
+    <div>
+        <h1>Hello Context</h1>
+        <h2>User: {user ? "login" : "logout"}</h2>
+        <div>
+            <button onClick={login}>Login</button>
+            <button onClick={logout}>Logout</button>
+        </div>
+    </div>
+</main> */}

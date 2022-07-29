@@ -1,10 +1,11 @@
 import { GetServerSideProps } from 'next';
+import { Input, Progress, Select } from 'react-daisyui';
 import Footer from './component/Footer';
 import Header from './component/Header';
 import Heads from './component/Heads';
 import ManuItem from './component/ManuItem';
 
-type posts = {
+export type posts = {
     userId: number;
     id: number;
     title: string;
@@ -21,7 +22,6 @@ export const getStaticProps: GetServerSideProps = async () => {
 }
 
 const Home = ({ posts }: { posts: posts[] }) => {
-    console.log(posts)
     const ManuList = [
         {
             itemName: "Pizza",
@@ -69,23 +69,4 @@ const Home = ({ posts }: { posts: posts[] }) => {
     )
 }
 
-// export async function getStaticProps() {
-//     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-//     const posts = await res.json();
-//     return {
-//         props: { posts },
-//     };
-// }
-
-// type DataProps = any
-
-// export const getServerSideProps = async () => {
-//     const data: any = await fetch("https://jsonplaceholder.typicode.com/posts");
-
-//     return {
-//         props: {
-//             data,
-//         },
-//     }
-// }
 export default Home;

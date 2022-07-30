@@ -48,7 +48,7 @@ const Login: React.FC<loginProp> = ({ loginData, }) => {
                                 <InputForm dataType='password' placeholder='Password' onChange={onChangePassw} />
                                 <div className="flex justify-between items-center mb-6">
                                     <div className="form-group form-check"></div>
-                                    <Link href="/admin/auth/forgot" passHref >
+                                    <Link href="/admin/auth/forgot" passHref={true} >
                                         <span className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out cursor-pointer">
                                             Forgot password?
                                         </span>

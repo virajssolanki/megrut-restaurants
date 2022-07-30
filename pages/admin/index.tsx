@@ -1,8 +1,9 @@
+import { AnyARecord } from "dns";
 import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
 import { posts } from "..";
 import AdminManuItem from "../component/adminManuItem";
-import { useAuth } from "../component/Context/Context";
+import { useAuth } from "../component/Context/ManuContext";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Heads from "../component/Heads";
@@ -22,6 +23,11 @@ type formInputProps = {
     placeholder: string;
     type: string;
     onChange?: () => void;
+}
+// test
+interface Animal {
+    name: string;
+    age: number;
 }
 const Home = ({ posts }: { posts: posts[] }) => {
     const [coockis, setCoockis] = useState(Boolean);
@@ -56,8 +62,7 @@ const Home = ({ posts }: { posts: posts[] }) => {
         )
     }
     const reanderAdmin = () => {
-        const { AdminManu, deleteHAndal, editHandl, addManuHandal } = useAuth();
-        console.log(AdminManu)
+        const { AdminManu, setAdminManu ,deleteHAndal, editHandl, addManuHandal } = useAuth();
         if (coockis !== true) {
             if (addRest !== true) {
                 return (
@@ -67,14 +72,14 @@ const Home = ({ posts }: { posts: posts[] }) => {
                         <ManuForm />
                         <div className="grid justify-center pt-8 pb-6">
                             {
-                               AdminManu.map( (x) => {
+                                AdminManu.map((x, key) => {
                                     return (
-                                        <AdminManuItem key={ x.id } itemName={ x.itemName } prise={ x.prise } imgSrc={ x.imgSrc } deleteHAndal={ deleteHAndal } editHandl={ editHandl } />
+                                        <AdminManuItem key={key} itemName={x.itemName} prise={x.prise} imgSrc={x.imgSrc} 
+                                        deleteHAndals={ () => { deleteHAndal( x.id )}} editHandl={editHandl} />
                                     )
-                               }) 
+                                })
                             }
                         </div>
-                        <button onClick={ addManuHandal }>hello Concret</button>
                     </>
                 )
             } else {
@@ -132,14 +137,3 @@ export const getStaticProps: GetServerSideProps = async () => {
 }
 
 export default Home;
-
-{/* <main>
-    <div>
-        <h1>Hello Context</h1>
-        <h2>User: {user ? "login" : "logout"}</h2>
-        <div>
-            <button onClick={login}>Login</button>
-            <button onClick={logout}>Logout</button>
-        </div>
-    </div>
-</main> */}

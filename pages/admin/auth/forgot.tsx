@@ -15,7 +15,7 @@ const Forgot: NextPage = () => {
                             <InputForm dataType='number' placeholder='Your Phone' />
                             <LogButton title='Reset password' />
                             {/* <LogButton title='Back' /> */}
-                            <Link href="/admin/auth/login" passHref >
+                            <Link href="/admin/auth/login" passHref={true} >
                                 <div className="w-full px-6 py-2 mt-4 text-center text-white bg-blue-600 rounded-lg hover:bg-blue-900">
                                     Back
                                 </div>

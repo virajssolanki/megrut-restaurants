@@ -1,19 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Theme, useTheme } from "./Context/ThemeContext";
 
 const Header:React.FC = () => {
     return(
         <div className="px-2 md:px-12 py-2 border-b border-blue-700 flex justify-between items-center sticky bg-white top-0 z-10">
             <div>
                 <div className="hidden md:block">
-                    <Link href="/" prefetch>
+                    <Link href="/" prefetch={true}>
                         <span><Image src="/imags/Megrut_logo.png" alt="megrut restaurant" className="cursor-pointer" height={80} width={180} /></span>
                     </Link>
                 </div>
                 <div className="md:hidden">
-                    <Link href="/" prefetch>
+                    <Link href="/" prefetch={true}>
                         <span><Image className="md:hidden" src="/imags/Megrut_logo.png" alt="megrut restaurant" height={50} width={120} /></span>
                     </Link>
                 </div>
@@ -35,7 +34,7 @@ const Header:React.FC = () => {
                 </div>
             </div>
             <div>
-                <Link href="/admin" prefetch>
+                <Link href="/admin" prefetch={true}>
                     <button className="border border-sky-600 rounded-md py-2 px-3 md:py-3 md:px-8 transition-all duration-300 hover:bg-sky-600 hover:text-white">Add Restaurant</button>
                 </Link>
             </div>

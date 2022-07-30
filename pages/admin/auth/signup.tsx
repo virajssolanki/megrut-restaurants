@@ -21,7 +21,7 @@ const Signup: NextPage = () => {
                             <LogButton title='Create Account' />
                             <div className="mt-6 text-grey-dark">
                                 Already have an account?
-                                <Link href="/admin/auth/forgot" passHref >
+                                <Link href="/admin/auth/forgot" passHref={true} >
                                     <span className="text-blue-600 hover:underline cursor-pointer ml-1">
                                         Log in
                                     </span>
